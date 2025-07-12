@@ -4,7 +4,7 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="pt-32 pb-20 px-4 md:px-0 bg-gradient-to-bl from-[hsl(var(--primary))/0.1] via-[hsl(var(--background))/0.8] to-[hsl(var(--muted))] flex flex-col md:flex-row items-center gap-10 min-h-[66vh] container animate-fade-in"
+      className="pt-32 pb-20 bg-gradient-to-bl from-[hsl(var(--primary))/0.1] via-[hsl(var(--background))/0.8] to-[hsl(var(--muted))] flex flex-col md:flex-row items-center gap-10 min-h-[66vh] animate-fade-in px-4 md:px-8"
       aria-label="Seção principal"
     >
       <div className="flex-1 text-center md:text-left max-w-lg">
