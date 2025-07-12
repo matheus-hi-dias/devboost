@@ -1,15 +1,10 @@
 "use client";
 
+import { SECTIONS } from "@/constants";
 import { useTheme } from "@/context/ThemeContext";
 import { SunIcon, MoonIcon, XMarkIcon, Bars3Icon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
 
-const SECTIONS = [
-  { id: "hero", label: "Início" },
-  { id: "courses", label: "Cursos" },
-  { id: "plans", label: "Planos" },
-  { id: "contact", label: "Contato" },
-]
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -31,12 +26,12 @@ export function Header() {
 
   return (
     <header
-      className={`fixed z-30 top-0 left-0 w-full transition backdrop-blur border-b ${scrolled
-        ? "shadow-card bg-white/80 border-primary"
+      className={`fixed z-30 top-0 left-0 w-full transition backdrop-blur ${scrolled
+        ? "shadow-card bg-background/80 border-primary"
         : "bg-gradient-to-r from-[hsl(var(--primary)/0.1)] to-[hsl(var(--background)/0.5)]"
         }`}
       aria-label="Menu principal">
-      <nav className="container flex items-center justify-between py-3 md:py-4">
+      <nav className="container flex items-center justify-between px-3 md:px-4 py-3 md:py-4">
         <a
           href="#hero"
           className="text-2xl font-bold text-primary hover:underline focus:outline-dashed"
@@ -72,7 +67,7 @@ export function Header() {
             aria-expanded={mobileMenu}
             onClick={() => setMobileMenu((prev) => !prev)}
           >
-            {mobileMenu ? <XMarkIcon className="w-4 h-4" /> : <Bars3Icon className="w-4 h-4" />}
+            {mobileMenu ? <XMarkIcon className="w-6 h-6" /> : <Bars3Icon className="w-6 h-6" />}
           </button>
         </div>
       </nav>
