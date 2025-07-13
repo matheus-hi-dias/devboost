@@ -33,6 +33,12 @@ export function Carousel<T>({ items, renderItem, className }: CarouselProps<T>) 
     return () => window.removeEventListener("resize", handleResize);
   }, [items.length]);
 
+  useEffect(() => {
+    if (items.length <= visibleCount && current !== 0) {
+      setCurrent(0);
+    }
+  }, [items.length, visibleCount, current])
+
   function onTouchStart(e: React.TouchEvent | React.MouseEvent) {
     isDragging.current = true;
     setDragOffset(0);
@@ -72,8 +78,12 @@ export function Carousel<T>({ items, renderItem, className }: CarouselProps<T>) 
     const moved = Math.round(diff / totalWidth);
 
     let next = current - moved;
-    if (next < 0) next = items.length - visibleCount;
-    if (next > items.length - visibleCount) next = 0;
+    if (items.length <= visibleCount) {
+      next = 0;
+    } else {
+      if (next < 0) next = items.length - visibleCount;
+      if (next > items.length - visibleCount) next = 0;
+    }
     setCurrent(next);
 
     isDragging.current = false;
@@ -107,7 +117,7 @@ export function Carousel<T>({ items, renderItem, className }: CarouselProps<T>) 
 
         <div
           ref={outerRef}
-          className={`flex overflow-hidden w-full touch-pan-x ${isAllVisible ? "" : "px-12"}`}
+          className={`flex overflow-hidden w-full touch-pan-x px-12`}
           style={{ cursor: isDragging.current ? "grabbing" : "grab" }}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
