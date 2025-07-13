@@ -13,6 +13,10 @@
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
 
+    --course: 210 40% 98%;
+
+    --gray-foreground: 220 10% 46%;
+
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
@@ -40,10 +44,14 @@
 
   [data-theme="dark"] {
     --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --foreground: 0 0% 100%;
 
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
+
+    --course: 230, 25%, 18%;
+
+    --gray-foreground: 220 14% 84%;
 
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
@@ -79,23 +87,34 @@
   .text-secondary { color: hsl(var(--secondary)); }
   .text-secondary-foreground { color: hsl(var(--secondary-foreground)); }
   .text-muted-foreground { color: hsl(var(--muted-foreground)); }
+  .text-gray-foreground { color: hsl(var(--gray-foreground)); }
+  .text-foreground { color: hsl(var(--foreground)); }
+  .text-popover-foreground { color: hsl(var(--popover-foreground)); }
+  .text-card-foreground { color: hsl(var(--card-foreground)); }
+
   .bg-primary { background-color: hsl(var(--primary)); }
   .bg-secondary { background-color: hsl(var(--secondary)); }
   .bg-muted { background-color: hsl(var(--muted)); }
   .bg-accent { background-color: hsl(var(--accent)); }
   .bg-destructive { background-color: hsl(var(--destructive)); }
+  .bg-input { background-color: hsl(var(--input)); }
+  .bg-background { background-color: hsl(var(--background)); }
+  .bg-popover { background-color: hsl(var(--popover)); }
+  .bg-card { background-color: hsl(var(--card)); }
+  .bg-course { background-color: hsl(var(--course)); }
+
   .border-primary { border-color: hsl(var(--primary)); }
   .border-secondary { border-color: hsl(var(--secondary)); }
   .border-muted { border-color: hsl(var(--muted)); }
   .border-accent { border-color: hsl(var(--accent)); }
   .border-destructive { border-color: hsl(var(--destructive)); }
-  .radius {
-    border-radius: var(--radius);
-  }
+  .border-input { border-color: hsl(var(--input)); }
+  .border-ring { border-color: hsl(var(--ring)); }
+
+  .radius { border-radius: var(--radius); }
   .shadow-card {
     box-shadow: 0 6px 32px rgba(155, 135, 245, 0.08), 0 1.5px 6px rgba(14, 165, 233, 0.06);
   }
-  /* Exemplo de animação customizada */
   .animate-fade-in {
     animation: fade-in 0.6s cubic-bezier(.4,0,.2,1) both;
   }

@@ -1,5 +1,5 @@
-import { Header } from "@/components/Header";
-import { HeroSection } from "@/components/HeroSection";
+import { CoursesSection, Header, HeroSection } from "@/components";
+
 
 export default function Home() {
   return (
@@ -7,6 +7,7 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
+        <CoursesSection />
       </main>
     </div>
   );

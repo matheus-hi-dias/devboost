@@ -17,7 +17,7 @@ export function HeroSection() {
         </p>
         <a
           href="#cursos"
-          className="inline-block rounded-lg bg-primary text-primary-foreground font-semibold text-base px-7 py-3 shadow-card hover:bg-primary/90 focus:ring-2 focus:ring-offset-2 focus:ring-primary transition"
+          className="inline-block rounded-lg bg-primary text-primary-foreground font-semibold text-base px-7 py-3 shadow-card hover:bg-[hsl(var(--primary)/0.9)] focus:ring-2 focus:ring-offset-2 focus:ring-primary transition"
         >
           Comece agora
         </a>
