@@ -1,5 +1,5 @@
 /* Importa a fonte Inter do Google */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 /* Importa o Tailwind e seus utilitários */
 @import "tailwindcss";
@@ -12,6 +12,10 @@
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
+    --card-normal: 240 12% 97%;
+
+    --shadow-card-1: 250 81% 74% / 0.18;
+    --shadow-card-2: 196 87% 48% / 0.13;
 
     --course: 210 40% 98%;
 
@@ -20,11 +24,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 261 83% 74%;           
-    --primary-foreground: 0 0% 100%;
+    --primary: 261 83% 74%;
+    --primary-foreground: 210 40% 98%;
 
     --secondary: 196 87% 48%;
-    --secondary-foreground: 0 0% 100%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -48,6 +52,10 @@
 
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
+    --card-normal: 222.2 84% 4.9%;
+
+    --shadow-card-1: 250 81% 74% / 0.08;
+    --shadow-card-2: 196 87% 48% / 0.06;
 
     --course: 230, 25%, 18%;
 
@@ -82,44 +90,108 @@
 }
 
 @layer utilities {
-  .text-primary { color: hsl(var(--primary)); }
-  .text-primary-foreground { color: hsl(var(--primary-foreground)); }
-  .text-secondary { color: hsl(var(--secondary)); }
-  .text-secondary-foreground { color: hsl(var(--secondary-foreground)); }
-  .text-muted-foreground { color: hsl(var(--muted-foreground)); }
-  .text-gray-foreground { color: hsl(var(--gray-foreground)); }
-  .text-foreground { color: hsl(var(--foreground)); }
-  .text-popover-foreground { color: hsl(var(--popover-foreground)); }
-  .text-card-foreground { color: hsl(var(--card-foreground)); }
+  .text-primary {
+    color: hsl(var(--primary));
+  }
+  .text-primary-foreground {
+    color: hsl(var(--primary-foreground));
+  }
+  .text-secondary {
+    color: hsl(var(--secondary));
+  }
+  .text-secondary-foreground {
+    color: hsl(var(--secondary-foreground));
+  }
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+  .text-gray-foreground {
+    color: hsl(var(--gray-foreground));
+  }
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+  .text-popover-foreground {
+    color: hsl(var(--popover-foreground));
+  }
+  .text-card-foreground {
+    color: hsl(var(--card-foreground));
+  }
 
-  .bg-primary { background-color: hsl(var(--primary)); }
-  .bg-secondary { background-color: hsl(var(--secondary)); }
-  .bg-muted { background-color: hsl(var(--muted)); }
-  .bg-accent { background-color: hsl(var(--accent)); }
-  .bg-destructive { background-color: hsl(var(--destructive)); }
-  .bg-input { background-color: hsl(var(--input)); }
-  .bg-background { background-color: hsl(var(--background)); }
-  .bg-popover { background-color: hsl(var(--popover)); }
-  .bg-card { background-color: hsl(var(--card)); }
-  .bg-course { background-color: hsl(var(--course)); }
+  .bg-primary {
+    background-color: hsl(var(--primary));
+  }
+  .bg-secondary {
+    background-color: hsl(var(--secondary));
+  }
+  .bg-muted {
+    background-color: hsl(var(--muted));
+  }
+  .bg-accent {
+    background-color: hsl(var(--accent));
+  }
+  .bg-destructive {
+    background-color: hsl(var(--destructive));
+  }
+  .bg-input {
+    background-color: hsl(var(--input));
+  }
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+  .bg-popover {
+    background-color: hsl(var(--popover));
+  }
+  .bg-card {
+    background-color: hsl(var(--card));
+  }
+  .bg-card-normal {
+    background-color: hsl(var(--card-normal));
+  }
+  .bg-course {
+    background-color: hsl(var(--course));
+  }
 
-  .border-primary { border-color: hsl(var(--primary)); }
-  .border-secondary { border-color: hsl(var(--secondary)); }
-  .border-muted { border-color: hsl(var(--muted)); }
-  .border-accent { border-color: hsl(var(--accent)); }
-  .border-destructive { border-color: hsl(var(--destructive)); }
-  .border-input { border-color: hsl(var(--input)); }
-  .border-ring { border-color: hsl(var(--ring)); }
+  .border-primary {
+    border-color: hsl(var(--primary));
+  }
+  .border-secondary {
+    border-color: hsl(var(--secondary));
+  }
+  .border-muted {
+    border-color: hsl(var(--muted));
+  }
+  .border-accent {
+    border-color: hsl(var(--accent));
+  }
+  .border-destructive {
+    border-color: hsl(var(--destructive));
+  }
+  .border-input {
+    border-color: hsl(var(--input));
+  }
+  .border-ring {
+    border-color: hsl(var(--ring));
+  }
 
-  .radius { border-radius: var(--radius); }
+  .radius {
+    border-radius: var(--radius);
+  }
   .shadow-card {
-    box-shadow: 0 6px 32px rgba(155, 135, 245, 0.08), 0 1.5px 6px rgba(14, 165, 233, 0.06);
+    box-shadow: 0 6px 32px hsl(var(--shadow-card-1)),
+      0 1.5px 6px hsl(var(--shadow-card-2));
   }
   .animate-fade-in {
-    animation: fade-in 0.6s cubic-bezier(.4,0,.2,1) both;
+    animation: fade-in 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
   }
   @keyframes fade-in {
-    0% { opacity: 0; transform: translateY(12px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }

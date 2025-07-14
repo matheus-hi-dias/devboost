@@ -1,4 +1,4 @@
-import { CoursesSection, Header, HeroSection } from "@/components";
+import { CoursesSection, Header, HeroSection, PlansSection } from "@/components";
 
 
 export default function Home() {
@@ -8,6 +8,7 @@ export default function Home() {
       <main>
         <HeroSection />
         <CoursesSection />
+        <PlansSection />
       </main>
     </div>
   );
