@@ -1,4 +1,5 @@
 import { CoursesSection, Header, HeroSection, PlansSection } from "@/components";
+import { ContactSection } from "@/components/ContactSection";
 
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
         <HeroSection />
         <CoursesSection />
         <PlansSection />
+        <ContactSection />
       </main>
     </div>
   );
