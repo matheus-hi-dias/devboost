@@ -8,7 +8,7 @@ export function PlansSection() {
         <h2 className="text-3xl font-extrabold text-foreground mb-2 text-center animate-fade-in ">
           Escolha o plano ideal para você
         </h2>
-        <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6 w-full justify-center items-stretch">
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6 w-full justify-items-center items-stretch">
           {PLANS.map((item, index) => (
             <div key={index} className="flex justify-center">
               <PlanCard
