@@ -3,7 +3,7 @@ import Image from "next/image";
 export function HeroSection() {
   return (
     <section
-      id="home"
+      id="hero"
       className="pt-32 pb-20 bg-gradient-to-bl from-[hsl(var(--primary))/0.1] via-[hsl(var(--background))/0.8] to-[hsl(var(--muted))] flex flex-col md:flex-row items-center gap-10 min-h-[66vh] animate-fade-in px-4 md:px-8"
       aria-label="Seção principal"
     >
@@ -13,10 +13,11 @@ export function HeroSection() {
           <span className="text-secondary">Desenvolvedor(a)</span>
         </h1>
         <p className="text-lg text-muted-foreground mb-8">
-          Cursos práticos, trilhas guiadas e projetos reais para você dominar o desenvolvimento web.
+          Cursos práticos, trilhas guiadas e projetos reais para você dominar o
+          desenvolvimento web.
         </p>
         <a
-          href="#cursos"
+          href="#courses"
           className="inline-block rounded-lg bg-primary text-primary-foreground font-semibold text-base px-7 py-3 shadow-card hover:bg-[hsl(var(--primary)/0.9)] focus:ring-2 focus:ring-offset-2 focus:ring-primary transition"
         >
           Comece agora

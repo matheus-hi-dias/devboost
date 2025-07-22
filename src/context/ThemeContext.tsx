@@ -27,10 +27,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  useEffect(() => {
-    console.log('theme: ', theme, '- ', getComputedStyle(document.documentElement).getPropertyValue('--primary'));
-  }, [theme]);
-
   const toggle = () => {
     const newTheme = theme === "dark" ? "light" : "dark";
     setTheme(newTheme);
