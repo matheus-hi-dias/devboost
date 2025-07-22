@@ -1,10 +1,6 @@
-/* Importa a fonte Inter do Google */
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-
-/* Importa o Tailwind e seus utilitários */
 @import "tailwindcss";
 
-/* Definição das variáveis CSS para os temas */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -44,6 +40,9 @@
     --ring: 222.2 84% 4.9%;
 
     --contact-background: 0 0% 100%;
+
+    --error: 0 84% 60%;
+    --error-bg: 0 84% 95%;
 
     --radius: 0.5rem;
   }
@@ -86,6 +85,9 @@
     --ring: 212.7 26.8% 83.9%;
 
     --contact-background: 222 15% 26%;
+
+    --error: 0 84% 70%;
+    --error-bg: 0 84% 20%;
   }
 
   body {
@@ -120,6 +122,12 @@
   }
   .text-card-foreground {
     color: hsl(var(--card-foreground));
+  }
+  .text-error {
+    color: hsl(var(--error));
+  }
+  .text-muted {
+    color: hsl(var(--muted-foreground));
   }
 
   .bg-primary {
@@ -158,6 +166,9 @@
   .bg-contact {
     background-color: hsl(var(--contact-background));
   }
+  .bg-error-bg {
+    background-color: hsl(var(--error-bg));
+  }
 
   .border-primary {
     border-color: hsl(var(--primary));
@@ -179,6 +190,9 @@
   }
   .border-ring {
     border-color: hsl(var(--ring));
+  }
+  .border-error {
+    border-color: hsl(var(--error));
   }
 
   .radius {
