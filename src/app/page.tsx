@@ -1,6 +1,10 @@
-import { CoursesSection, Header, HeroSection, PlansSection } from "@/components";
-import { ContactSection } from "@/components/ContactSection";
-
+import {
+  ContactSection,
+  CoursesSection,
+  Header,
+  HeroSection,
+  PlansSection,
+} from "@/components";
 
 export default function Home() {
   return (

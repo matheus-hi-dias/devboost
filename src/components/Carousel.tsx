@@ -7,7 +7,11 @@ interface CarouselProps<T> {
   className?: string;
 }
 
-export function Carousel<T>({ items, renderItem, className }: CarouselProps<T>) {
+export function Carousel<T>({
+  items,
+  renderItem,
+  className,
+}: CarouselProps<T>) {
   const [current, setCurrent] = useState(0);
   const [visibleCount, setVisibleCount] = useState(1);
   const [dragOffset, setDragOffset] = useState(0);
@@ -37,7 +41,7 @@ export function Carousel<T>({ items, renderItem, className }: CarouselProps<T>) 
     if (items.length <= visibleCount && current !== 0) {
       setCurrent(0);
     }
-  }, [items.length, visibleCount, current])
+  }, [items.length, visibleCount, current]);
 
   function onTouchStart(e: React.TouchEvent | React.MouseEvent) {
     isDragging.current = true;
@@ -91,14 +95,12 @@ export function Carousel<T>({ items, renderItem, className }: CarouselProps<T>) 
   }
 
   const goPrev = () => {
-    setCurrent((prev) =>
-      prev === 0 ? Math.max(0, items.length - visibleCount) : prev - 1
+    setCurrent(prev =>
+      prev === 0 ? Math.max(0, items.length - visibleCount) : prev - 1,
     );
   };
   const goNext = () => {
-    setCurrent((prev) =>
-      prev >= items.length - visibleCount ? 0 : prev + 1
-    );
+    setCurrent(prev => (prev >= items.length - visibleCount ? 0 : prev + 1));
   };
 
   const isAllVisible = items.length <= visibleCount;
@@ -128,11 +130,15 @@ export function Carousel<T>({ items, renderItem, className }: CarouselProps<T>) 
           onMouseLeave={onTouchEnd}
         >
           <div
-            className={`flex gap-4 transition-transform duration-300 ease-in-out ${isAllVisible ? "justify-center w-full" : ""}`}
+            className={`flex gap-4 transition-transform duration-300 ease-in-out ${
+              isAllVisible ? "justify-center w-full" : ""
+            }`}
             style={{
               transform: isAllVisible
                 ? "none"
-                : `translateX(calc(-${current * (itemRef.current?.offsetWidth || 0)}px + ${dragOffset}px))`,
+                : `translateX(calc(-${
+                    current * (itemRef.current?.offsetWidth || 0)
+                  }px + ${dragOffset}px))`,
               transition: isDragging.current ? "none" : undefined,
             }}
           >
@@ -159,12 +165,16 @@ export function Carousel<T>({ items, renderItem, className }: CarouselProps<T>) 
       </div>
 
       <div className="flex justify-center gap-2 mt-4">
-        {Array.from({ length: Math.max(1, items.length - visibleCount + 1) }).map((_, idx) => (
+        {Array.from({
+          length: Math.max(1, items.length - visibleCount + 1),
+        }).map((_, idx) => (
           <button
             key={idx}
             aria-label={`Ir para o slide ${idx + 1}`}
             onClick={() => setCurrent(idx)}
-            className={`w-2 h-2 rounded-full ${idx === current ? "bg-primary" : "bg-gray-300"}`}
+            className={`w-2 h-2 rounded-full ${
+              idx === current ? "bg-primary" : "bg-gray-300"
+            }`}
           />
         ))}
       </div>
