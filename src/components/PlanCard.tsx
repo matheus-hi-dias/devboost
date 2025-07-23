@@ -2,7 +2,7 @@ interface PlanCardProps {
   title: string;
   features: string[];
   price: number;
-  highlighted?: boolean;
+  highlight?: boolean;
 }
 
 function formatCurrency(v: number) {
@@ -15,17 +15,12 @@ function formatCurrency(v: number) {
       });
 }
 
-export function PlanCard({
-  title,
-  features,
-  price,
-  highlighted,
-}: PlanCardProps) {
+export function PlanCard({ title, features, price, highlight }: PlanCardProps) {
   return (
     <div
       className={`flex flex-col justify-between rounded-2xl shadow-card w-full md:min-w-[320px] md:w-[320px] min-h-[340px] min-w-[340px] transition border px-7 py-8
         ${
-          highlighted
+          highlight
             ? "bg-gradient-to-br from-yellow-200 via-yellow-100 to-yellow-50 border-yellow-400 shadow-[0_0_40px_-10px_rgba(250,204,21,0.18)] scale-105"
             : "bg-card-normal border-muted"
         } animate-fade-in`}
@@ -35,14 +30,14 @@ export function PlanCard({
       <div>
         <h3
           className={`text-xl font-bold mb-4 ${
-            highlighted ? "text-yellow-700" : "text-primary"
+            highlight ? "text-yellow-700" : "text-primary"
           }`}
         >
           {title}
         </h3>
         <ul
           className={`space-y-2 mb-8 list-disc list-inside ${
-            highlighted ? "text-gray-700" : "text-muted-foreground"
+            highlight ? "text-gray-700" : "text-muted-foreground"
           }`}
         >
           {features.map((feature, index) => (
@@ -52,7 +47,7 @@ export function PlanCard({
       </div>
       <span
         className={`text-3xl font-black ${
-          highlighted ? "text-yellow-800" : "text-secondary-foreground"
+          highlight ? "text-yellow-800" : "text-secondary-foreground"
         }`}
       >
         {formatCurrency(price)}

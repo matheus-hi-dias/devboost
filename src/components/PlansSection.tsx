@@ -23,7 +23,7 @@ export function PlansSection() {
                 title={item.title}
                 features={item.features}
                 price={item.price}
-                highlighted={item.highlight}
+                highlight={item.highlight}
               />
             </div>
           ))}
