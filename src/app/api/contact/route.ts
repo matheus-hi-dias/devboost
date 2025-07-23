@@ -1,11 +1,29 @@
 import { sendContactEmail } from "@/lib/email";
-import { NextResponse } from "next/server";
+import rateLimit from "next-rate-limit";
+import { NextRequest, NextResponse } from "next/server";
+import validator from "validator";
 
-export async function POST(request: Request) {
+
+const limiter = rateLimit({
+  interval: 60 * 1000,
+  uniqueTokenPerInterval: 500,
+})
+export async function POST(request: NextRequest) {
   try {
+    const headers = limiter.checkNext(request, 10);
+    if (headers instanceof Error) {
+      return NextResponse.json(
+        { error: "Muitas requisições. Tente novamente mais tarde." },
+        { status: 429 }
+      )
+    }
+
     const body = await request.json();
-    const { name, email, message } = body;
     const errors: string[] = [];
+
+    const name = validator.escape(body.name || "");
+    const email = validator.normalizeEmail(body.email || "") || "";
+    const message = validator.escape(body.message || "");
 
     if (!name || typeof name !== "string") {
       errors.push("Nome inválido");
@@ -19,7 +37,7 @@ export async function POST(request: Request) {
     }
 
     if (errors.length > 0) {
-      return NextResponse.json({ error: errors }, { status: 400 });
+      return NextResponse.json({ error: errors.join(", ") }, { status: 400 });
     }
 
     await sendContactEmail({ name, email, message });

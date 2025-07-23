@@ -2,7 +2,7 @@
 
 import { HttpError } from "@/types/HttpError";
 import { ArrowPathIcon, PaperAirplaneIcon } from "@heroicons/react/24/outline";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Toast } from "./Toast";
 import { ContactData } from "@/types/contact";
 
@@ -115,7 +115,13 @@ export function ContactSection() {
 
       if (!res.ok) {
         const result = await res.json();
-        throw new HttpError(result.error || "Erro desconhecido", res.status);
+        let errorMsg = "Erro desconhecido";
+        if (Array.isArray(result.error)) {
+          errorMsg = result.error.join(", ");
+        } else if (typeof result.error === "string") {
+          errorMsg = result.error;
+        }
+        throw new HttpError(errorMsg, res.status);
       }
       setSuccess(true);
       setFieldErrors({});
@@ -133,10 +139,6 @@ export function ContactSection() {
       setSubmitting(false);
     }
   }
-
-  useEffect(() => {
-    console.log("Field errors updated:", JSON.stringify(fieldErrors, null, 2));
-  }, [fieldErrors]);
 
   return (
     <section

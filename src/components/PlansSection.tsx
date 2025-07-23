@@ -17,8 +17,8 @@ export function PlansSection() {
           Escolha o plano ideal para você
         </h2>
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6 w-full justify-items-center items-stretch">
-          {PLANS.map((item, index) => (
-            <div key={index} className="flex justify-center">
+          {PLANS.map(item => (
+            <div key={item.id} className="flex justify-center">
               <PlanCard
                 title={item.title}
                 features={item.features}
